@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statlines",
+  "info": {
+    "singularName": "statline",
+    "pluralName": "statlines",
+    "displayName": "Statline"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vanityID": {
+      "type": "string"
+    },
+    "season": {
+      "type": "integer"
+    },
+    "gameNumber": {
+      "type": "string"
+    },
+    "player": {
+      "type": "string"
+    },
+    "partner": {
+      "type": "string"
+    },
+    "opponentA": {
+      "type": "string"
+    },
+    "opponentB": {
+      "type": "string"
+    },
+    "matchOutcome": {
+      "type": "enumeration",
+      "enum": [
+        "Win",
+        "Loss",
+        "Unplayed"
+      ]
+    },
+    "pointsFor": {
+      "type": "integer"
+    },
+    "pointsAgainst": {
+      "type": "integer"
+    },
+    "shots": {
+      "type": "integer"
+    },
+    "saves": {
+      "type": "integer"
+    },
+    "goals": {
+      "type": "integer"
+    },
+    "assists": {
+      "type": "integer"
+    },
+    "demos": {
+      "type": "integer"
+    },
+    "deaths": {
+      "type": "integer"
+    }
+  }
+}

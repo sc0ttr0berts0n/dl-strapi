@@ -362,28 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiTestTest extends Schema.CollectionType {
-  collectionName: 'tests';
-  info: {
-    singularName: 'test';
-    pluralName: 'tests';
-    displayName: 'Test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    testField: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -699,6 +677,73 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiStatlineStatline extends Schema.CollectionType {
+  collectionName: 'statlines';
+  info: {
+    singularName: 'statline';
+    pluralName: 'statlines';
+    displayName: 'Statline';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    vanityID: Attribute.String;
+    season: Attribute.Integer;
+    gameNumber: Attribute.String;
+    player: Attribute.String;
+    partner: Attribute.String;
+    opponentA: Attribute.String;
+    opponentB: Attribute.String;
+    matchOutcome: Attribute.Enumeration<['Win', 'Loss', 'Unplayed']>;
+    pointsFor: Attribute.Integer;
+    pointsAgainst: Attribute.Integer;
+    shots: Attribute.Integer;
+    saves: Attribute.Integer;
+    goals: Attribute.Integer;
+    assists: Attribute.Integer;
+    demos: Attribute.Integer;
+    deaths: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::statline.statline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::statline.statline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'Test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    testField: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -709,13 +754,14 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::statline.statline': ApiStatlineStatline;
+      'api::test.test': ApiTestTest;
     }
   }
 }
