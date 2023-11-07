@@ -46,6 +46,9 @@
     "pointsAgainst": {
       "type": "integer"
     },
+    "score": {
+      "type": "integer"
+    },
     "shots": {
       "type": "integer"
     },

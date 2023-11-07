@@ -698,6 +698,7 @@ export interface ApiStatlineStatline extends Schema.CollectionType {
     matchOutcome: Attribute.Enumeration<['Win', 'Loss', 'Unplayed']>;
     pointsFor: Attribute.Integer;
     pointsAgainst: Attribute.Integer;
+    score: Attribute.Integer;
     shots: Attribute.Integer;
     saves: Attribute.Integer;
     goals: Attribute.Integer;
