@@ -677,6 +677,44 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiMatchMatch extends Schema.CollectionType {
+  collectionName: 'matches';
+  info: {
+    singularName: 'match';
+    pluralName: 'matches';
+    displayName: 'Matches';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    season: Attribute.String;
+    gameNumber: Attribute.String;
+    matchStatus: Attribute.Enumeration<
+      ['Unscheduled', 'Upcoming', 'Scratched', 'Completed']
+    >;
+    playerA: Attribute.String;
+    playerB: Attribute.String;
+    playerC: Attribute.String;
+    playerD: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::match.match',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::match.match',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPlayerPlayer extends Schema.CollectionType {
   collectionName: 'players';
   info: {
@@ -798,6 +836,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::match.match': ApiMatchMatch;
       'api::player.player': ApiPlayerPlayer;
       'api::statline.statline': ApiStatlineStatline;
       'api::test.test': ApiTestTest;
