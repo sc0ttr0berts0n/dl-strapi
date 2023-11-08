@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "players",
+  "info": {
+    "singularName": "player",
+    "pluralName": "players",
+    "displayName": "Players",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "seasonsActive": {
+      "type": "string"
+    },
+    "divisions": {
+      "type": "string"
+    },
+    "playerColor": {
+      "type": "string"
+    },
+    "discordID": {
+      "type": "string"
+    },
+    "pcode": {
+      "type": "string"
+    },
+    "inactive": {
+      "type": "boolean"
+    }
+  }
+}
