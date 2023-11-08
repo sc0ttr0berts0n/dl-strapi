@@ -752,6 +752,38 @@ export interface ApiPlayerPlayer extends Schema.CollectionType {
   };
 }
 
+export interface ApiSeasonSeason extends Schema.CollectionType {
+  collectionName: 'seasons';
+  info: {
+    singularName: 'season';
+    pluralName: 'seasons';
+    displayName: 'Seasons';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    seasonNumber: Attribute.Integer;
+    playerCount: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::season.season',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::season.season',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiStatlineStatline extends Schema.CollectionType {
   collectionName: 'statlines';
   info: {
@@ -838,6 +870,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::match.match': ApiMatchMatch;
       'api::player.player': ApiPlayerPlayer;
+      'api::season.season': ApiSeasonSeason;
       'api::statline.statline': ApiStatlineStatline;
       'api::test.test': ApiTestTest;
     }
