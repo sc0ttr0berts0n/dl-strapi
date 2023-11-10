@@ -1,30 +1,32 @@
 {
   "name": "dl-strapi",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "A Strapi application",
+  "license": "MIT",
+  "author": {
+    "name": "A Strapi developer"
+  },
   "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
+    "develop": "strapi develop",
+    "pull-from-remote-db": "npm run strapi transfer -- --from https://diet-league-cms-hoiqy.ondigitalocean.app/admin",
+    "start": "strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
+    "@strapi/plugin-graphql": "^4.15.2",
     "@strapi/plugin-i18n": "4.14.5",
     "@strapi/plugin-users-permissions": "4.14.5",
     "@strapi/strapi": "4.14.5",
     "better-sqlite3": "8.6.0",
     "mysql": "^2.18.1"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "89403c2e-1b82-4237-8a6d-da0454c3bb0f"
-  },
   "engines": {
     "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "89403c2e-1b82-4237-8a6d-da0454c3bb0f"
+  }
 }
